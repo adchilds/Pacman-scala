@@ -3,7 +3,6 @@ import java.awt.event.{ActionEvent, ActionListener, KeyEvent, KeyListener, Mouse
 import java.text.DecimalFormat
 import java.util.Random
 import javax.swing.{ImageIcon, JFrame, JOptionPane}
-import scala.collection.immutable.HashMap
 
 /**
  * The UserInterface class handles the view of the game and input
@@ -124,7 +123,86 @@ class UserInterface extends JFrame with ActionListener with KeyListener with Mou
 	@Override
 	def keyPressed(e: KeyEvent): Unit =
 	{
-	  
+		keyPressed = true
+		
+		if (e.getKeyCode == KeyEvent.VK_W || e.getKeyCode == KeyEvent.VK_UP)
+		{
+			if (game_state == Game_State.START_SCREEN)
+			{
+				/*
+				 * Check the arrows current location and move it accordingly
+				 */
+				if (arrow_pos == Arrow_Pos.START_GAME)
+					arrow_pos = Arrow_Pos.QUIT
+				else if (arrow_pos == Arrow_Pos.CREDITS)
+					arrow_pos = Arrow_Pos.START_GAME
+				else if (arrow_pos == Arrow_Pos.HELP)
+					arrow_pos = Arrow_Pos.CREDITS
+				else
+					arrow_pos = Arrow_Pos.HELP
+			} else if (game_state == Game_State.IN_GAME) {
+				
+			}
+		}
+		else if (e.getKeyCode == KeyEvent.VK_S || e.getKeyCode == KeyEvent.VK_DOWN)
+		{
+			if (game_state == Game_State.START_SCREEN)
+			{
+				/*
+				 * Check the arrows current location and move it accordingly
+				 */
+				if (arrow_pos == Arrow_Pos.START_GAME)
+					arrow_pos = Arrow_Pos.CREDITS
+				else if (arrow_pos == Arrow_Pos.CREDITS)
+					arrow_pos = Arrow_Pos.HELP
+				else if (arrow_pos == Arrow_Pos.HELP)
+					arrow_pos = Arrow_Pos.QUIT
+				else
+					arrow_pos = Arrow_Pos.START_GAME
+			} else if (game_state == Game_State.IN_GAME) {
+				
+			}
+		} else if (e.getKeyCode == KeyEvent.VK_LEFT || e.getKeyCode == KeyEvent.VK_A) {
+			if (game_state == Game_State.START_SCREEN)
+			{
+				
+			} else if (game_state == Game_State.IN_GAME) {
+				
+			}
+		} else if (e.getKeyCode == KeyEvent.VK_RIGHT || e.getKeyCode == KeyEvent.VK_D) {
+			if (game_state == Game_State.START_SCREEN)
+			{
+				
+			} else if (game_state == Game_State.IN_GAME) {
+				
+			}
+		} else if (e.getKeyCode == KeyEvent.VK_ENTER) {
+			/*
+			 * Check the arrows current location and choose
+			 * the correct action
+			 */
+			if (arrow_pos == Arrow_Pos.START_GAME)
+			{
+				game_state = Game_State.IN_GAME
+				
+//				lh = new LevelHandler
+			} else if (arrow_pos == Arrow_Pos.CREDITS) {
+				JOptionPane.showMessageDialog(this,
+						"Adam Childs - adchilds@eckerd.edu",
+						"Credits",
+						JOptionPane.INFORMATION_MESSAGE)
+			} else if (arrow_pos == Arrow_Pos.HELP) {
+				val fmt = new DecimalFormat("#0.00")
+				JOptionPane.showMessageDialog(this,
+						"Current version: v" + fmt.format(version) + "\n" +
+						"Created by Adam Childs" + "\n" +
+						"adchilds@eckerd.edu",
+						"Pacman v" + fmt.format(version),
+						JOptionPane.INFORMATION_MESSAGE)
+			} else if (arrow_pos == Arrow_Pos.QUIT) {
+				System.exit(0)
+			}
+		}
 	}
 
 	@Override
