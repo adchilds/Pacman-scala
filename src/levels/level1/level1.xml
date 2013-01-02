@@ -1,0 +1,74 @@
+<level>
+	<!-- Image for the level -->
+    <image>level1.png</image>
+
+    <!-- High score for the level -->
+    <high_score>1500</high_score>
+
+    <!-- Boundary limits where pacman is allowed to move -->
+    <boundaries>
+        <b0> <!-- LEFT and RIGHT -->
+            <x>139</x>
+            <y>242</y>
+            <x2>264</x2>
+            <y2>247</y2>
+        </b0>
+        <b1> <!-- UP and DOWN -->
+            <x>137</x>
+            <y>180</y>
+            <x2>142</x2>
+            <y2>275</y2>
+        </b1>
+        <b2> <!-- UP and DOWN -->
+            <x>262</x>
+            <y>180</y>
+            <x2>267</x2>
+            <y2>275</y2>
+        </b2>
+        <b3> <!-- LEFT and RIGHT -->
+            <x>139</x>
+            <y>178</y>
+            <x2>264</x2>
+            <y2>183</y2>
+        </b3>
+        <b4> <!-- LEFT and RIGHT -->
+            <x>30</x>
+            <y>273</y>
+            <x2>180</x2>
+            <y2>278</y2>
+        </b4>
+        <b5> <!-- LEFT and RIGHT -->
+            <x>224</x>
+            <y>273</y>
+            <x2>377</x2>
+            <y2>278</y2>
+        </b5>
+        <b6> <!-- UP and DOWN -->
+            <x>178</x>
+            <y>273</y>
+            <x2>183</x2>
+            <y2>309</y2>
+        </b6>
+    </boundaries>
+
+    <!-- (x, y) location where pacman will begin -->
+    <pacman_start>
+        <x>195</x>
+        <y>237</y>
+    </pacman_start>
+
+    <!-- Possible fruit spawn locations -->
+    <fruit_pos>
+        
+    </fruit_pos>
+
+    <!-- Small dot locations -->
+    <small_dot_pos>
+        
+    </small_dot_pos>
+
+    <!--  Large dot locations -->
+	<large_dot_pos>
+	    
+	</large_dot_pos>
+</level>
